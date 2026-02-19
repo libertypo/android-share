@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Share Page</title>
+    <link rel="stylesheet" href="popup.css">
+</head>
+
+<body>
+    <div class="app-container">
+        <header>
+            <div class="logo">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                    stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="18" cy="5" r="3"></circle>
+                    <circle cx="6" cy="12" r="3"></circle>
+                    <circle cx="18" cy="19" r="3"></circle>
+                    <line x1="8.59" y1="13.51" x2="15.42" y2="17.49"></line>
+                    <line x1="15.41" y1="6.51" x2="8.59" y2="10.49"></line>
+                </svg>
+                <span>Share</span>
+            </div>
+            <button id="open-read-later" class="icon-btn-header" title="Read Later List" style="margin-right: 8px;">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                    stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M8 6h13M8 12h13M8 18h13M3 6h.01M3 12h.01M3 18h.01"></path>
+                </svg>
+            </button>
+            <button id="open-settings" class="icon-btn-header" title="Options">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                    stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="12" cy="12" r="3"></circle>
+                    <path
+                        d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z">
+                    </path>
+                </svg>
+            </button>
+        </header>
+
+        <main>
+            <div class="article-info">
+                <h2 id="article-title">Loading...</h2>
+                <div class="url-row">
+                    <p id="article-url">Fetching article details...</p>
+                    <span id="char-counter" class="char-counter">0</span>
+                </div>
+
+            </div>
+
+            <div class="share-grid" id="share-grid">
+                <!-- Dynamically populated from popup.js -->
+            </div>
+        </main>
+
+        <footer>
+            <div class="footer-content">
+                <span>Another Share</span>
+                <span class="divider">|</span>
+                <span class="privacy-note"
+                    title="All processing happens locally. No data ever leaves your device.">Privacy First</span>
+            </div>
+        </footer>
+    </div>
+
+    <div id="toast" class="toast"></div>
+
+    <div id="capture-overlay" class="capture-overlay">
+        <div class="overlay-content">
+            <h3>Screenshot Preview</h3>
+            <div class="preview-container">
+                <img id="capture-preview" src="" alt="Screenshot Preview">
+            </div>
+            <div class="overlay-actions">
+                <button id="share-screenshot-btn" class="action-btn">Share Screenshot</button>
+                <div class="action-grid">
+                    <button id="print-screenshot" class="action-btn secondary">Print</button>
+                    <button id="download-screenshot" class="action-btn secondary">Save Image</button>
+                    <button id="open-screenshot" class="action-btn secondary">Open in Tab</button>
+                </div>
+                <button id="close-overlay" class="action-btn secondary text-link">Close</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="../js/logger.js"></script>
+    <script src="../js/platforms.js"></script>
+    <script src="popup.js"></script>
+</body>
+
+</html>

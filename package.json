@@ -1,0 +1,12 @@
+{
+    "name": "shareflow-addon",
+    "version": "0.1.7.30",
+    "description": "Premium article sharing extension for Firefox.",
+    "scripts": {
+        "start": "web-ext run",
+        "build": "web-ext build"
+    },
+    "devDependencies": {
+        "web-ext": "^8.0.0"
+    }
+}

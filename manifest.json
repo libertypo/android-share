@@ -1,0 +1,78 @@
+{
+    "manifest_version": 3,
+    "name": "android_share",
+    "version": "0.1.7.7",
+    "description": "A native-feeling article sharing extension.",
+    "content_security_policy": {
+        "extension_pages": "script-src 'self'; object-src 'none'; frame-src 'none'; style-src 'self' 'unsafe-inline'; img-src 'self' data:;"
+    },
+    "permissions": [
+        "activeTab",
+        "scripting",
+        "storage",
+        "tabs"
+    ],
+    "host_permissions": [
+        "<all_urls>"
+    ],
+    "options_ui": {
+        "page": "options/options.html",
+        "open_in_tab": true
+    },
+    "icons": {
+        "48": "icons/icon-48.png",
+        "96": "icons/icon-96.png",
+        "128": "icons/icon-128.png"
+    },
+    "content_scripts": [
+        {
+            "matches": [
+                "<all_urls>"
+            ],
+            "js": [
+                "js/logger.js",
+                "content.js"
+            ],
+            "run_at": "document_start"
+        }
+    ],
+    "web_accessible_resources": [
+        {
+            "resources": [
+                "js/inject.js"
+            ],
+            "matches": [
+                "<all_urls>"
+            ]
+        }
+    ],
+    "background": {
+        "scripts": [
+            "js/logger.js",
+            "js/platforms.js",
+            "background.js"
+        ]
+    },
+    "action": {
+        "default_popup": "popup/popup.html",
+        "default_icon": {
+            "48": "icons/icon-48.png",
+            "96": "icons/icon-96.png",
+            "128": "icons/icon-128.png"
+        }
+    },
+    "browser_specific_settings": {
+        "gecko": {
+            "id": "android-share@ovidio.me",
+            "strict_min_version": "142.0",
+            "data_collection_permissions": {
+                "required": [
+                    "none"
+                ]
+            }
+        },
+        "gecko_android": {
+            "strict_min_version": "142.0"
+        }
+    }
+}

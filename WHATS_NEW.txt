@@ -1,0 +1,12 @@
+WHAT'S NEW - Android Share v0.1.7.7
+-----------------------------------
+
+BIG UPDATE: NATIVE ANDROID INTEGRATION
+
+*   [NEW] System Share: Added a button to open the native Android share menu.
+*   [NEW] Movable Button: The share button (FAB) can now be dragged to any position on the screen.
+*   [NEW] Read Later: Save articles to a temporary local list to read later.
+*   [NEW] Markdown Support: Copy links formatted as Markdown [Title](URL) for your notes.
+*   [IMPROVED] Full Page Screenshots: Completely rewritten engine. Now captures very long articles and stitches them perfectly.
+*   [PRIVACY] Tracker Scrubbing: Automatically removes 15+ tracking parameters (utm, fbclid) from shared links.
+*   [CLEANUP] Simplified UI and removed clutter.
