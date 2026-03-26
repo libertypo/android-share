@@ -11,28 +11,17 @@ This repository enforces a strict sanitization policy to remove all references t
 - Antigravity
 - AI
 
-**Automatic Enforcement:** Git hooks will automatically prevent commits and pushes containing these terms.
+**Local Enforcement Only:** Sanitization is enforced locally on developer machines before pushing to GitHub.
 
-### Setup
+### Maintaining Code Quality
 
-After cloning, enable the git hooks:
+When working on this repository:
 
-```bash
-git config core.hooksPath .githooks
-```
+1. **Verify no prohibited terms** are in your code before committing
+2. **Manual review:** Check your changes don't contain any AI-related references
+3. **Commit safely:** Once verified, commit and push with confidence
 
-### What Happens
-
-- **Pre-commit hook:** Blocks commits containing prohibited terms in code
-- **Pre-push hook:** Blocks pushes containing prohibited terms
-
-If a hook blocks your changes:
-1. Remove the prohibited terms from your code
-2. Re-stage and commit/push
-
-### Hook Details
-
-Hooks are stored in `.githooks/` and configured via `core.hooksPath`. They automatically exclude themselves from scanning to allow the enforcement mechanism to exist.
+The repository is designed with a clean policy: no AI-related discussions, references, or mentions in the codebase.
 
 ---
 
