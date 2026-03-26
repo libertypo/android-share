@@ -1,0 +1,17 @@
+#!/bin/bash
+
+# Pre-commit hook: Enforce sanitization rules before committing
+# Prevents commits containing prohibited AI-related references
+# Excludes hook files themselves
+
+PROHIBITED_TERMS="copilot|github-copilot|gemini|openai|claude|chatgpt|antigravity"
+
+# Check staged files for prohibited terms, excluding git hooks
+if git diff --cached -i -- . ":(exclude).githooks/**" ":(exclude).git/hooks/**" | grep -q -i "$PROHIBITED_TERMS"; then
+    echo "ERROR: Pre-commit hook blocked commit"
+    echo "Prohibited AI-related term found in staged changes:"
+    git diff --cached -- . ":(exclude).githooks/**" ":(exclude).git/hooks/**" | grep -n -i "$PROHIBITED_TERMS" | head -5
+    exit 1
+fi
+
+exit 0
