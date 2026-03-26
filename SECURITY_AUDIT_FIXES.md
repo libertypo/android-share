@@ -179,15 +179,6 @@ Beyond the 8 main issues, the extension maintains:
 
 ---
 
-## Pre-Push Validation
-
-Local git hooks enforce sanitization before commits/pushes:
-- **Pre-commit hook** (.git/hooks/pre-commit): Blocks commits with prohibited terms
-- **Pre-push hook** (.git/hooks/pre-push): Blocks pushes with prohibited terms
-- Hooks run automatically on developer machine (private enforcement, not published to GitHub)
-
----
-
 ## Status
 
 ✅ **All security corrections implemented and verified**  
