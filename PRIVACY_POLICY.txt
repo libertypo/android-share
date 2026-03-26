@@ -1,0 +1,54 @@
+Privacy Policy for Android Share Extension
+Effective Date: February 18, 2026
+
+1. Overview
+The "Android Share" extension (the "Add-on") is built on a foundational principle of Zero Data Collection. 
+We do not collect, store, transmit, or sell any personal information, browsing history, or usage analytics. 
+The Add-on is designed to operate strictly locally on your device.
+
+2. Data Collection
+We utilize a privacy-by-design approach.
+- No Personal Data: We do not collect names, email addresses, IP addresses, or any other personally identifiable 
+information.
+- No Tracking: We do not use cookies, pixels, or any third-party analytics services (e.g., Google Analytics) 
+to track your behavior.
+- No External Servers: The Add-on has no backend server. All processing—including URL sanitization and text extraction—occurs locally within your browser's memory.
+
+3. Data Usage & Permissions
+The Add-on requires specific permissions to function. Here is how they are used and why they are necessary:
+
+- Access to All Websites (<all_urls> / host_permissions):
+  Purpose: Required solely to inject the "Floating Action Button" (FAB) into the specific articles you visit.
+  Usage: The Add-on only interacts with the page's DOM (structure) to read the title/URL upon your command. It does not monitor your browsing activity across the web.
+
+- activeTab:
+  Purpose: Used to retrieve the Title and URL of the current page when you initiate a share action.
+  Usage: This data is temporarily held in memory to populate the share preview and is discarded immediately 
+  after sharing.
+
+- storage:
+  Purpose: Used to save your local preferences (e.g., hiding specific share buttons, FAB position) 
+  and your "Read Later" list.
+  Usage: This data relies on browser.storage.local, which is a private storage area on your device 
+  that is not synced to the cloud or accessible to us.
+
+- scripting:
+  Purpose: Used to execute the technical logic required for extracting text from the page.
+
+4. Third-Party Services
+The Add-on helps you share content to third-party platforms (e.g., X, WhatsApp, Bluesky).
+- Link Sharing: When you choose to share a link, the Add-on constructs a sharing intent (URL) that opens t
+he corresponding app or website on your device.
+- Data Passthrough: The Add-on passes the sanitized URL and title directly to the target app via the 
+Android system. We do not intermediate this connection or log what you share.
+- Privacy policies of these third parties apply: Once you leave the Add-on to complete a share, 
+your interactions are governed by the privacy policy of the destination app.
+
+5. Changes to This Policy
+If we make material changes to how we handle your data, we will update this policy and notify you via 
+the Add-on's release notes. Given our commitment to user privacy, we do not anticipate changing our 
+zero-collection stance.
+
+6. Contact
+If you have questions about this privacy policy or the Add-on's practices, please contact the developer 
+via the support email listed on the Add-ons Manager page.
