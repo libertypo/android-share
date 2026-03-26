@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Firefox Share Options</title>
+    <link rel="stylesheet" href="options.css">
+</head>
+
+<body>
+    <div class="container">
+        <h1>Extension Settings</h1>
+
+        <section class="settings-section">
+            <h2>Privacy & Security</h2>
+            <p class="description">Control the "Privacy Protection" engine that disables the extension on sensitive
+                domains.</p>
+            <div class="setting-item">
+                <label>Enforcement Level</label>
+                <select id="security-level">
+                    <option value="moderate">Moderate (Best Balance)</option>
+                    <option value="strict" selected>Strict (Privacy Protection)</option>
+                </select>
+            </div>
+            <p class="description small">Moderate: Blocks banks, gov, and payment sites. Strict: Also blocks crypto
+                wallets, private email, and medical portals.</p>
+        </section>
+
+        <section class="settings-section">
+            <h2>Screenshot Preferences</h2>
+            <div class="setting-item">
+                <label>Default Image Format</label>
+                <select id="screenshot-format">
+                    <option value="image/png">PNG (Lossless)</option>
+                    <option value="image/jpeg">JPEG (Smaller file)</option>
+                </select>
+            </div>
+            <div class="setting-item">
+                <label>JPEG Quality (if selected)</label>
+                <input type="range" id="screenshot-quality" min="10" max="100" value="90">
+                <span id="quality-val">90%</span>
+            </div>
+        </section>
+
+        <section class="settings-section">
+            <h2>Custom Sharing Template</h2>
+            <p class="description">Add a custom service (e.g., self-hosted Mastodon or link shortener). Use
+                <code>{url}</code> and <code>{title}</code> as placeholders.
+            </p>
+            <div class="input-group">
+                <input type="text" id="custom-template" placeholder="https://example.com/share?link={url}&text={title}">
+                <button id="save-template" class="btn-primary">Save Template</button>
+            </div>
+        </section>
+
+        <section class="settings-section">
+            <h2>Grid Customization</h2>
+            <p class="description">Drag to reorder platforms or uncheck to hide them in the popup grid.</p>
+            <div id="platform-list" class="platform-list">
+                <!-- Dynamically populated -->
+            </div>
+            <button id="save-order" class="btn-primary">Save Changes</button>
+        </section>
+
+        <section class="settings-section">
+            <h2>System Diagnostics</h2>
+            <p class="description">Enable internal logging to help troubleshoot issues. All logs are stored strictly
+                on your device and sanitized for privacy.</p>
+            <div class="setting-item">
+                <label class="toggle-control">
+                    <input type="checkbox" id="debug-logging-toggle">
+                    <span class="control-label">Enable Debug Logging</span>
+                </label>
+            </div>
+            <div class="input-group">
+                <button id="view-logs" class="btn-secondary">View Current Logs</button>
+                <button id="download-logs" class="btn-secondary">Download .log file</button>
+                <button id="clear-logs" class="btn-danger">Clear Logs</button>
+            </div>
+            <pre id="log-viewer" class="log-viewer" style="display:none;"></pre>
+        </section>
+
+        <div id="status"></div>
+    </div>
+    <script src="../js/logger.js"></script>
+    <script src="options.js"></script>
+</body>
+
+</html>

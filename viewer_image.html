@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Screenshot Viewer</title>
+    <style>
+        :root {
+            --primary: #0060df;
+            --bg: #f4f4f9;
+            --text: #1a1a1b;
+        }
+
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --bg: #1c1c1e;
+                --text: #ffffff;
+            }
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: -apple-system, system-ui, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            display: flex;
+            flex-direction: column;
+            height: 100vh;
+        }
+
+        .toolbar {
+            padding: 12px 16px;
+            background: rgba(var(--bg), 0.8);
+            backdrop-filter: blur(10px);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border-bottom: 1px solid rgba(128, 128, 128, 0.2);
+            position: sticky;
+            top: 0;
+            z-index: 10;
+        }
+
+        .title {
+            font-weight: 600;
+            font-size: 16px;
+        }
+
+        .actions {
+            display: flex;
+            gap: 12px;
+        }
+
+        .btn {
+            background: var(--primary);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            padding: 8px 16px;
+            font-size: 14px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: opacity 0.2s;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .btn:active {
+            opacity: 0.8;
+        }
+
+        .content {
+            flex: 1;
+            overflow-y: auto;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            padding: 20px;
+        }
+
+        #screenshot-img {
+            max-width: 100%;
+            height: auto;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
+            border-radius: 4px;
+            background: white;
+        }
+
+        .loading {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            opacity: 0.6;
+            font-size: 14px;
+        }
+
+        #toast {
+            position: fixed;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%) translateY(100px);
+            background: #333;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 20px;
+            font-size: 14px;
+            transition: transform 0.3s cubic-bezier(0.18, 0.89, 0.32, 1.28);
+            z-index: 100;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+        }
+
+        #toast.active {
+            transform: translateX(-50%) translateY(0);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="toolbar">
+        <div class="title">Screenshot</div>
+        <div class="actions">
+            <button id="btn-print" class="btn">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                    <polyline points="6 9 6 2 18 2 18 9"></polyline>
+                    <path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"></path>
+                    <rect x="6" y="14" width="12" height="8"></rect>
+                </svg>
+                Print
+            </button>
+            <button id="btn-download" class="btn">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                    <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                    <polyline points="7 10 12 15 17 10"></polyline>
+                    <line x1="12" y1="15" x2="12" y2="3"></line>
+                </svg>
+                Save
+            </button>
+        </div>
+    </div>
+    <div class="content">
+        <div id="loading-msg" class="loading">Loading screenshot...</div>
+        <img id="screenshot-img" style="display: none;">
+    </div>
+    <div id="toast">Message</div>
+
+    <script src="viewer_image.js"></script>
+</body>
+
+</html>
